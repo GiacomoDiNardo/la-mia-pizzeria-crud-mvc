@@ -1,0 +1,26 @@
+﻿@model Pizza
+
+<h1>Dettaglio Pizza: @Model.Name</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Foto</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrizione</th>
+            <th scope="col">Prezzo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.PizzaId</td>
+            <td>
+                <img src="@Model.Image" alt="@Model.Name" style="width: 300px">
+            </td>
+            <td>@Model.Name</td>
+            <td>@Model.Description</td>
+            <td>@Model.Prezzo</td>
+        </tr>
+    </tbody>
+</table>

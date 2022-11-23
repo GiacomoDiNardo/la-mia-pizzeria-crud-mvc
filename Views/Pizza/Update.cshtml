@@ -1,29 +1,46 @@
-﻿@model Pizza
+﻿@using la_mia_pizzeria_static.Models.Forms
+@model PizzaForm
 
 <h1>Modifica Pizza</h1>
 
-<form asp-controller="Pizza" asp-action="Update" asp-route-id="@Model.PizzaId" method="post">
+<form asp-controller="Pizza" asp-action="Update" asp-route-id="@Model.Pizza.PizzaId" method="post">
     @Html.AntiForgeryToken()
 
     <div class="mb-3">
         <strong>Nome:</strong>
-        <input asp-for="Name" class="d-block w-100" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+        <input asp-for="Pizza.Name" class="d-block w-100" />
+        <span asp-validation-for="Pizza.Name" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <strong>Descrizione:</strong>
-        <textarea asp-for="Description" class="d-block w-100" rows="3"></textarea>
-        <span asp-validation-for="Description" class="text-danger"></span>
+        <textarea asp-for="Pizza.Description" class="d-block w-100" rows="3"></textarea>
+        <span asp-validation-for="Pizza.Description" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <strong>Immagine:</strong>
-        <input asp-for="Image" class="d-block w-100" />
-        <span asp-validation-for="Image" class="text-danger"></span>
+        <input asp-for="Pizza.Image" class="d-block w-100" />
+        <span asp-validation-for="Pizza.Image" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <strong>Prezzo:</strong>
-        <input asp-for="Prezzo" class="d-block w-100" />
-        <span asp-validation-for="Prezzo" class="text-danger"></span>
+        <input asp-for="Pizza.Prezzo" class="d-block w-100" />
+        <span asp-validation-for="Pizza.Prezzo" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <strong>Categoria:</strong>
+        <select asp-for="Pizza.CategoryId" rows="10" class="d-block w-100">
+            @foreach (Category category in Model.Categories)
+            {
+                @if (Model.Pizza.CategoryId == category.Id)
+                {
+                    <option value="@category.Id" selected>@category.Title</option>
+                }
+                else
+                {
+                    <option value="@category.Id">@category.Title</option>
+                }
+            }
+        </select>
     </div>
     <div class="text-end">
         <input type="submit" class="btn btn-small btn-success" value="Salva">

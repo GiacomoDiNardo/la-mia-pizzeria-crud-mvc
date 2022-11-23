@@ -22,14 +22,18 @@ namespace la_mia_pizzeria_static.Models
 
         [Required(ErrorMessage = "Il campo è obbligatorio")]
         [Range(0, 999, ErrorMessage = "Il Prezzo non può essere minore di 0, o superiore a 999")]
-        public int Prezzo { get; set; }
+        public float Prezzo { get; set; }
+
+        public int CategoryId { get; set; }
+
+        public Category? Category { get; set; }
 
         public Pizza ()
         {
 
         }
 
-        public Pizza (string name, string description, int prezzo, string image)
+        public Pizza (string name, string description, float prezzo, string image)
         {
             Name = name;
             Description = description;

@@ -28,6 +28,8 @@ namespace la_mia_pizzeria_static.Models
 
         public Category? Category { get; set; }
 
+        public List<Ingredient>? Ingredients { get; set; }
+
         public Pizza ()
         {
 

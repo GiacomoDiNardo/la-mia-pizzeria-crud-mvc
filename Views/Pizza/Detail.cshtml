@@ -9,6 +9,8 @@
             <th scope="col">Foto</th>
             <th scope="col">Nome</th>
             <th scope="col">Descrizione</th>
+            <th scope="col">Categorie</th>
+            <th scope="col">Ingredienti</th>
             <th scope="col">Prezzo</th>
         </tr>
     </thead>
@@ -20,6 +22,15 @@
             </td>
             <td>@Model.Name</td>
             <td>@Model.Description</td>
+            <td>@Model.Category.Title</td>
+            <td>
+                @foreach (Ingredient ingredient in Model.Ingredients)
+                {
+                    <div>
+                        <span class="badge bg-primary">@ingredient.Name</span>
+                    </div>
+                }
+            </td>
             <td>@Model.Prezzo</td>
         </tr>
     </tbody>

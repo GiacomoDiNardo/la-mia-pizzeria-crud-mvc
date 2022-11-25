@@ -6,5 +6,17 @@
         public string Name { get; set; }
 
         public List<Pizza>? Pizza { get; set; }
+
+    public Ingredient()
+    {
+
+    }
+
+    public Ingredient (int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+
     }
 }

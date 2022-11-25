@@ -1,0 +1,17 @@
+﻿@model Ingredient
+
+<h1>Crea nuova Pizza</h1>
+
+<form asp-controller="Ingredient" asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        <strong>Nome:</strong>
+        <input asp-for="@Model.Name" class="d-block w-100" />
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+    
+    <div class="text-end">
+        <input type="submit" class="btn btn-small btn-success" value="Salva">
+    </div>
+</form>

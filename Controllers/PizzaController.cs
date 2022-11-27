@@ -13,14 +13,22 @@ namespace la_mia_pizzeria_static.Controllers
     {
         PizzeriaDbContext db;
 
-        DbPizzeriaRepository pizzeriaRepository;
+        IDbPizzeriaRepository pizzeriaRepository;
 
 
         public PizzaController() : base ()
         {
             db = new PizzeriaDbContext();
 
-            pizzeriaRepository = new DbPizzeriaRepository();
+            int dbError = new Random().Next(1, 11);
+
+            if (dbError > 5)
+            {
+                pizzeriaRepository = new InMemoryPizzaRepository();
+            } else
+            {
+                pizzeriaRepository= new DbPizzeriaRepository();
+            }
         } 
 
         public IActionResult Index()

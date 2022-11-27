@@ -4,7 +4,7 @@ using Microsoft.SqlServer.Server;
 
 namespace la_mia_pizzeria_static.Models.Repository
 {
-    public class DbPizzeriaRepository
+    public class DbPizzeriaRepository : IDbPizzeriaRepository
     {
         private PizzeriaDbContext db;
 
@@ -39,7 +39,7 @@ namespace la_mia_pizzeria_static.Models.Repository
 
         public void Update(Pizza pizza, Pizza formData, List<int> selectedIngredients)
         {
-           
+
 
             if (selectedIngredients == null)
             {
@@ -54,7 +54,7 @@ namespace la_mia_pizzeria_static.Models.Repository
 
             pizza.Ingredients.Clear();
 
-            
+
 
             foreach (int ingredientId in selectedIngredients)
             {
